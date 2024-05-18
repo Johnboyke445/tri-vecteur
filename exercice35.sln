@@ -1,0 +1,71 @@
+using System;
+
+namespace Exercice35
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Saisie de la taille du vecteur
+            Console.WriteLine("Saisir le nombre de cases du vecteur :");
+            int nb = int.Parse(Console.ReadLine());
+
+            // Déclaration du vecteur
+            int[] vec = new int[nb];
+
+            // Saisie du vecteur
+            for (int i = 0; i < nb; i++)
+            {
+                Console.Write("Nombre n°" + i + ": ");
+                vec[i] = int.Parse(Console.ReadLine());
+            }
+
+            // Premier affichage du vecteur non trié
+            Console.WriteLine("Vecteur non trié :");
+            for (int i = 0; i < nb; i++)
+            {
+                Console.Write(vec[i] + " ");
+            }
+            Console.WriteLine();
+
+            // Tri par bulle
+            bool echange;
+
+            do
+            {
+                // On part du principe qu'il n'y a pas d'échange
+                echange = false;
+
+                // Parcours du vecteur afin d'établir la comparaison du vecteur 2 à 2.
+                for (int k = 1; k < nb; k++)
+                {
+                    if (vec[k] < vec[k - 1])
+                    {
+                        // Échange des éléments si nécessaire
+                        int sauv = vec[k];
+                        vec[k] = vec[k - 1];
+                        vec[k - 1] = sauv;
+                        echange = true;
+                    }
+                }
+
+                // Affichage du vecteur en cours de tri
+                Console.WriteLine("Vecteur en cours de tri :");
+                for (int k = 0; k < nb; k++)
+                {
+                    Console.Write(vec[k] + " ");
+                }
+                Console.WriteLine();
+
+            } while (echange);
+
+            // Affichage du vecteur trié
+            Console.WriteLine("Vecteur trié :");
+            for (int i = 0; i < nb; i++)
+            {
+                Console.Write(vec[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
